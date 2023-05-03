@@ -79,7 +79,7 @@ function App() {
 
                         <ul>
                             <li>
-                                <strong>Chitti:</strong> Hi! Ask me anything about Ramen noodles. Type bye at any point to end and clear the chat.
+                                <strong>Chitti:</strong> Hi! I'm Chitti. Ask me anything about Ramen. Type 'bye' at any point to end and clear the chat.
                             </li>
                             {history.map((item, index) => (
                                 <li key={index}>

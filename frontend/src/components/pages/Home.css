@@ -89,8 +89,8 @@ li {
 
 
 .ramen-img {
-    width: 380px;
-    height: 400px;
+    width: 320px;
+    height: 320px;
 }
 
 .section {
@@ -122,6 +122,7 @@ form input {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-left: 5%;
 }
 
 .chat-container li {

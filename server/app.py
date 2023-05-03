@@ -3,14 +3,16 @@ from flask_cors import CORS
 import string
 import random
 import openai
+import os
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-greeting_inputs = ("hello", "hi", "hey", "what's up" "hi there", "heyy", "heyyy", "hii", "hi chitti")
-greeting_responses = ["Hello!", "Hi!", "Hey!", "Hi there!", "Welcome!", "Hello there, how can I help?", "Hey babe", "Hey cutie", "Hey, what's up?", "Hey! What's poppin?"]
+greeting_inputs = ("hello", "hi", "hey", "what's up" "hi there", "heyy", "heyyy", "hii", "hi chitti", "hi!", "hey!", "hello!")
+greeting_responses = ["Hello!", "Hi!", "Hey!", "Hi there!", "Welcome! Let's talk ramen.", "Hello there! Let's talk ramen.", "Hey babe", "Hey cutie", "Hey, what's up?", "Hey! What's poppin?"]
 
-openai.api_key = "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"
+
+openai.api_key = os.environ["OPENAI_API_KEY"]
 messages = [{"role" : "system", "content": "You are an assistant"}]
 
 @app.route('/', methods=['GET'])
@@ -21,9 +23,6 @@ def hello():
 def receive_post():
     data = request.get_json()
     text = data.get('text', '')
-    # response = text
-    # history.append((text, response))
-    # return jsonify(response)
     messages.append({"role": "user", "content" : text})
     for word in text.split():
         if word.lower() in greeting_inputs:
