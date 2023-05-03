@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MLH-chatbot/static/css/main.92326a7d.css",
+    "main.js": "/MLH-chatbot/static/js/main.1949b28f.js",
+    "index.html": "/MLH-chatbot/index.html",
+    "main.92326a7d.css.map": "/MLH-chatbot/static/css/main.92326a7d.css.map",
+    "main.1949b28f.js.map": "/MLH-chatbot/static/js/main.1949b28f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92326a7d.css",
+    "static/js/main.1949b28f.js"
+  ]
+}
