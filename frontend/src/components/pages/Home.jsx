@@ -7,9 +7,11 @@ function App() {
     const [message, setMessage] = useState('');
     const [inputText, setInputText] = useState('');
     const [history, setHistory] = useState([]);
+    
+    const URL = "http://127.0.0.1:8000";
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/')
+        axios.get(`${URL}/`)
             .then(response => {
                 setMessage(response.data);
             })
@@ -19,7 +21,7 @@ function App() {
     }, []);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/history')
+        axios.get(`${URL}/history`)
             .then(response => {
                 setHistory(response.data);
             })
@@ -33,7 +35,7 @@ function App() {
         e.preventDefault();
 
         if (inputText.toLowerCase() === 'bye') {
-            axios.post('http://127.0.0.1:8000/post', { text: inputText })
+            axios.post(`${URL}/post`, { text: inputText })
                 .then(response => {
                     setMessage("Goodbye!");
                     setHistory([]);
@@ -43,7 +45,7 @@ function App() {
                     console.log(error);
                 });
         } else {
-            axios.post('http://127.0.0.1:8000/post', { text: inputText })
+            axios.post(`${URL}/post`, { text: inputText })
                 .then(response => {
                     setMessage(response.data);
                     setHistory([...history, { input: inputText, response: response.data }]);
