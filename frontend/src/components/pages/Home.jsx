@@ -30,6 +30,12 @@ function App() {
             });
     }, []);
 
+    useEffect(() => {
+        // Scroll to the bottom of the chat history on update
+        const chatHistory = document.getElementById('chathistory');
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }, [history]);
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -77,7 +83,7 @@ function App() {
                     src="https://img.freepik.com/premium-vector/hand-drawn-cute-ramen-noodle-illustration-design-vector_90573-539.jpg?w=2000"
                 ></img>
                 <div className="chat-container">
-                    <div className="message-history-container">
+                    <div className="message-history-container" id="chathistory">
 
                         <ul>
                             <li>
